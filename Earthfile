@@ -2,7 +2,7 @@ VERSION 0.7
 FROM ubuntu:18.04
 
 target:
-  BUILD +run --sso_region="eu-west-2" --region="eu-west-2" --args="sts get-caller-identity"
+  BUILD +run --region="eu-west-2" --args="sts get-caller-identity"
 
 ubuntu:
   FROM ubuntu:18.04
