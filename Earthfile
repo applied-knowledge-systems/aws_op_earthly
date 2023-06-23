@@ -1,6 +1,14 @@
 VERSION 0.7
+PROJECT applied-knowledge-systems/aws_op_earthly
+
 FROM ubuntu:18.04
 
+ci-pipeline:
+  PIPELINE
+  TRIGGER push main
+  TRIGGER pr main
+  BUILD +target
+          
 target:
   BUILD +run --region="eu-west-2" --args="sts get-caller-identity"
 
