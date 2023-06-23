@@ -33,11 +33,6 @@ run:
   FROM +login-op
   RUN --no-cache --secret OP_CONNECT_HOST --secret OP_CONNECT_TOKEN op run --env-file="./aws.env" -- aws $args --region $region
 
-LOGIN:
-  COMMAND
-  ARG --required sso_region
-  BUILD +login --sso_region=$sso_region
-  COPY (+login/credentials --sso_region=$sso_region) /root/.aws/credentials
 
 # Installs the AWS CLI
 INSTALL_CLI:
