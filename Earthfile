@@ -31,7 +31,7 @@ run:
   ENV AWS_REGION=$region
   ARG --required args
   FROM +login-op
-  RUN --no-cache --secret OP_CONNECT_HOST --secret OP_CONNECT_TOKEN op run --env-file="./aws.env" -- aws $args --region $region
+  RUN --no-cache --secret OP_CONNECT_HOST=OP_CONNECT_HOST --secret OP_CONNECT_TOKEN=OP_CONNECT_HOST op run --env-file="./aws.env" -- aws $args --region $region
 
 
 # Installs the AWS CLI
