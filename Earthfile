@@ -23,8 +23,8 @@ login-op:
   DO +INSTALL_OP_CLI
   DO +INSTALL_CLI
   COPY aws.env . 
-  # RUN --secret OP_CONNECT_HOST=OP_CONNECT_HOST --secret OP_CONNECT_TOKEN=OP_CONNECT_TOKEN op run --env-file="/workspace/aws.env" -- aws sts get-caller-identity
-  # RUN --secret OP_CONNECT_HOST=OP_CONNECT_HOST --secret OP_CONNECT_TOKEN=OP_CONNECT_TOKEN op run --env-file="/workspace/aws.env" -- aws s3 ls
+  RUN --secret OP_CONNECT_HOST=OP_CONNECT_HOST --secret OP_CONNECT_TOKEN=OP_CONNECT_TOKEN op run --env-file="/workspace/aws.env" -- aws sts get-caller-identity
+  RUN --secret OP_CONNECT_HOST=OP_CONNECT_HOST --secret OP_CONNECT_TOKEN=OP_CONNECT_TOKEN op run --env-file="/workspace/aws.env" -- aws s3 ls
 
 run:
   ARG --required region
