@@ -33,7 +33,7 @@ run:
 
 # Installs the AWS CLI
 INSTALL_CLI:
-  COMMAND
+  FUNCTION
   ARG TARGETARCH
   IF [ "$TARGETARCH" = "amd64" ]
     ARG aws_architecture="x86_64"
@@ -50,10 +50,10 @@ INSTALL_CLI:
 
 # Installs the 1Password Connect CLI2
 INSTALL_OP_CLI:
-  COMMAND
+  FUNCTION
   ARG TARGETARCH
   ENV ARCH "$TARGETARCH"
-  ENV OP_CLI_VERSION "v2.0.0"
+  ENV OP_CLI_VERSION "v2.30.0"
 
   RUN echo "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_CLI_VERSION}/op_linux_${ARCH}_${OP_CLI_VERSION}.zip"
   RUN curl -sSfo op.zip "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_CLI_VERSION}/op_linux_${ARCH}_${OP_CLI_VERSION}.zip" \
