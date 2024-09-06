@@ -1,12 +1,9 @@
-VERSION 0.7
+VERSION 0.8
 PROJECT applied-knowledge-systems/aws_op_earthly
 
 FROM ubuntu:18.04
 
 ci-pipeline:
-  PIPELINE
-  TRIGGER push main
-  TRIGGER pr main
   BUILD +target
           
 target:
